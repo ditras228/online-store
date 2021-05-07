@@ -11,7 +11,10 @@ const TypeBar = observer( ()=> {
                 <ListGroup.Item key={type.id}
                 style={{cursor:"pointer"}}
                 active={type.id === device.selectedType.id}
-                onClick={()=>device.setSelectedType(type)}>
+                onClick={()=>{
+                    device.setSelectedType(type)
+                    device.setPage(1)
+                }}>
 
                     {type.name}
                 </ListGroup.Item>

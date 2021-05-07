@@ -40,13 +40,13 @@ class DeviceController{
                 devices = await Device.findAndCountAll({limit, offset})
             }
             if(!brandId && typeId){
-                devices = await Device.findAndCountAll({where: {typeId, limit, offset}})
+                devices = await Device.findAndCountAll({where: {typeId}, limit, offset})
             }
             if(brandId && !typeId){
-                devices = await Device.findAndCountAll({where: {brandId, limit, offset}})
+                devices = await Device.findAndCountAll({where: {brandId}, limit, offset})
             }
             if(brandId && typeId){
-                devices = await Device.findAndCountAll({where: {brandId, typeId, limit, offset}})
+                devices = await Device.findAndCountAll({where: {brandId, typeId}, limit, offset})
             }
             return res.json(devices)
         }

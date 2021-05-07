@@ -15,7 +15,7 @@ const CreateType = ({show, onHide}) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header closeButton onClick={onHide}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Добавить тип
                 </Modal.Title>
