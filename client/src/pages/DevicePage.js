@@ -1,23 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
+import {useParams} from "react-router";
+import {fetchOneDevices} from "../http/devicesAPI";
 
 const DevicePage = () => {
-    const device = {id: 1, name: '12 pro', price: 9999, rating: 5, img: 'http://placehold.it/100x100',
-        infos: [
-            {id: 1, title: 'test', description: 'testToo'},
-            {id: 2, title: 'test', description: 'testToo'},
-            {id: 1, title: 'test', description: 'testToo'},
-            {id: 2, title: 'test', description: 'testToo'},
-            {id: 1, title: 'test', description: 'testToo'},
-            {id: 2, title: 'test', description: 'testToo'},
-
-        ],
-    }
+    const [device, setDevice] = useState({infos: []})
+    const {id}=useParams()
+    useEffect(()=>{
+        fetchOneDevices(id).then(data=>setDevice(data))
+    })
     return (
         <Container>
             <Row className={'mt-3'}>
                 <Col md={4}>
-                    <Image width={300} height={300} src={device.img}/>
+                    <Image width={300} height={300} src={process.env.REACT_APP_API_UTL+ device.img}/>
                 </Col>
                 <Col md={4}>
                     <Row>

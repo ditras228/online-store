@@ -10,7 +10,8 @@ class TypeController{
         }
     }
     async getAll(req, res){
-
+        let type = await Type.findAll()
+        return res.json(type)
     }
 
 }

@@ -21,7 +21,11 @@ const NavBar = observer(() => {
                             >Админ панель</Button>
                             <Button
                                 variant={"outline-light"}
-                                onClick={()=> history.push(LOGIN_ROUTE)}
+                                onClick={()=>
+                                {
+                                    user.setIsAuth(false)
+                                    history.push(LOGIN_ROUTE)
+                                }}
                             >Выйти</Button>
                         </Nav>
                         :
